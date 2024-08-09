@@ -1,0 +1,50 @@
+{
+	"name": "ytaha/google-auth",
+	"description": "The Google Auth plugin allows users to create accounts on a WordPress website using their Google accounts.",
+	"type": "project",
+	"config": {
+		"platform": {
+			"php": "7.4"
+		},
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Yaseen Taha",
+			"email": "showyaseen@hotmail.com"
+		}
+	],
+	"require": {
+		"php": ">=7.4",
+		"google/apiclient": "^2.15"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"phpunit/phpunit": "^9.0",
+		"yoast/phpunit-polyfills": "^2.0"
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"Google_Task_Composer::cleanup"
+		],
+		"post-update-cmd": [
+			"Google_Task_Composer::cleanup"
+		]
+	},
+    "extra": {
+        "google/apiclient": [
+            "Client"
+        ],
+        "google/apiclient-services": [
+            "Oauth2"
+        ]
+    },
+	"autoload": {
+        "classmap": ["core/", "app/"]
+	}
+}
